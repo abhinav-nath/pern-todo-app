@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14.1-alpine
+    container_name: pern-todo-db
+    restart: always
+    volumes:
+      - pern-todo-db-volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=pernTodoDbUser
+      - POSTGRES_PASSWORD=pernTodoDbPassword
+      - POSTGRES_DB=pernTodoDb
+    ports:
+      - "5432:5432"
+
+volumes:
+  pern-todo-db-volume:
